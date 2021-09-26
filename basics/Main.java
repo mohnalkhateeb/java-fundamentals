@@ -19,17 +19,7 @@ public class Main {
         flipNHeads(5);
         // flipNHeads(7);
         // flipNHeads(1);
-        new java.util.Timer().schedule(
-                new java.util.TimerTask() {
-                    @Override
-                    public void run() {
-                        clock();
-                        // your code here
-
-                    }
-                },
-                1000,1000
-        );
+        clock();
 
     }
 
@@ -78,9 +68,21 @@ public class Main {
     }
     public static void clock()
     {
-        LocalDateTime now = LocalDateTime.now();
-        String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        System.out.println(time);
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+
+                        // your code here
+                        LocalDateTime now = LocalDateTime.now();
+                        String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                        System.out.println(time);
+
+                    }
+                },
+                1000,1000
+        );
+
 
     }
     
