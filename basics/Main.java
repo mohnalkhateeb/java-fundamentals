@@ -16,9 +16,9 @@ public class Main {
         int turtleCount = 0;
         System.out.println("I own " + turtleCount + " " + pluralize("turtle", turtleCount) + ".");
 
-        flipNHeads(5);
+        flipNHeads(2);
         // flipNHeads(7);
-        // flipNHeads(1);
+         flipNHeads(1);
         clock();
 
     }
@@ -64,7 +64,9 @@ public class Main {
                 if(headCount == headr) break;
             }
         }
-        System.out.println("It took"+" "+ flip+" "+ "flips to flip"+ " "+ headCount +" "+"head in a row.");
+        if(headr == 1)
+        {System.out.println("It took"+" "+ flip+" "+ "flips to flip"+ " "+ headCount +" "+"head in a row.");}
+        else {System.out.println("It took"+" "+ flip+" "+ "flips to flip"+ " "+ headCount +" "+"heads in a row.");}
     }
     public static void clock()
     {
