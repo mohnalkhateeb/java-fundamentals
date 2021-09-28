@@ -24,8 +24,8 @@ public class Library {
         for(int i=0;i<n;i++)
         {
             Random rand = new Random();
-            int upperbound = 7;
-            int int_random = rand.nextInt(upperbound);
+            int upperbound = 6;
+            int int_random = rand.nextInt(upperbound)+1;
             rollArr[i] = int_random;
         }
         return rollArr;
@@ -44,8 +44,8 @@ public class Library {
         System.out.println("false");
         return false;
     }
-    public static int avgCalc(int[] Arr){
-        int averages = 0;
+    public static double avgCalc(int[] Arr){
+        double averages = 0;
 
         for (int x : Arr){
             averages += x;
@@ -55,7 +55,7 @@ public class Library {
     }
     public static int[] arrayOfArrays (int[][] arr){
         int minIndx = 0;
-        int minAverage = avgCalc(arr[0]);
+        double minAverage = avgCalc(arr[0]);
 
         for (int i = 0; i < arr.length; i++) {
             if(avgCalc(arr[i]) < minAverage){

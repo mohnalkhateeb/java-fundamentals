@@ -4,26 +4,63 @@
 package basiclibrary;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
+
+    Library testLib = new Library();
+
+    @Test
+    void someLibraryMethodReturnsTrue() {
         Library classUnderTest = new Library();
         assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
     }
-//    @Test
-//    public void testRoll() {
-//        Library TestRoll = new Library();
-//        int n;
-//        n=2;
-//        int[] rollArry = Library.roll(n);
-//        assertEquals("rollArray values should be  between 1-6", rollArry.length,  n);
-//
-//    }
-//@Test public void testDuplicates(){
-//    int[] testArr = new int[]{1,2,3,3};
-//
-//    assertTrue("Should return true if duplicates exist", Library.containsDuplicates(testArr));
-//}
+
+    @Test
+    public void testRoll() {
+
+        int n;
+        n = 2;
+        int[] rollArry = testLib.roll(n);
+        assertEquals(n, rollArry.length);
+//        assertTrue(rollArry[0]<=6 , "OK");
+//        assertTrue(rollArry[1]<=6 , "OK");
+
+    }
+
+    @Test
+    public void testTrueDuplicates() {
+        int[] testArr = new int[]{1, 2, 3,3};
+
+        assertTrue(testLib.hasDuplicates(testArr),"Should return true if duplicates exist" );
+    }
+    @Test
+    public void testFalseDuplicates() {
+        int[] testArr = new int[]{1, 2, 3,5};
+
+        assertFalse(testLib.hasDuplicates(testArr),"Should return false if duplicates exist" );
+    }
+    @Test public void averagesTest(){
+        int[] testArr = new int[]{1,2,4,7,5};
+        double testAverage = 3.8;
+
+        assertEquals(testAverage, testLib.avgCalc(testArr));
+
+    }
+
+    @Test public void arrayOfArraysTest(){
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+
+        int[] expectedOutput = weeklyMonthTemperatures[2];
+
+
+        assertEquals(expectedOutput, testLib.arrayOfArrays(weeklyMonthTemperatures));
+    }
 }
