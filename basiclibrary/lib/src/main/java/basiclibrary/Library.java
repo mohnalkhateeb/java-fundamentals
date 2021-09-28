@@ -8,11 +8,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Stack;
-import java.util.Random;
+import java.util.*;
+
 public class Library {
 
     public boolean someLibraryMethod() {
@@ -66,20 +63,63 @@ public class Library {
         }
         return arr[minIndx];
     }
-//    public void scrapper(String url) {
-//        Document doc = null;
-//
-//        try {
-//            doc = Jsoup.connect(url).get();
-//        } catch (IOException exception) {
-//            System.out.println("some thing went wrong => " + exception.getMessage());
-//        }
-//
-//        assert doc != null;
-//        System.out.println(doc.title());
-//        Elements newsHeadlines = doc.select("#mp-itn b a");
-//        for (Element headline : newsHeadlines) {
-//            System.out.printf("%s\n\t%s", headline.attr("title"), headline.absUrl("href"));
-//        }
+
+    //************ lab03features **************************************
+    public static String temperaturesHashSet (int[][] weeklyMonthTempArr){
+
+        String neverSaw = "Never saw temperature: ";
+
+        //HashSet definition
+        HashSet<Integer> readingTemperatures = new HashSet<>();
+
+        //StringBuilder to build the string that will be printed
+        StringBuilder strToPrint = new StringBuilder();
+
+
+        //Adds temperature values into HashSet
+        for (int i = 0; i < weeklyMonthTempArr.length; i++) {
+            for (int j = 0; j < weeklyMonthTempArr[i].length ; j++) {
+                readingTemperatures.add(weeklyMonthTempArr[i][j]);
+            }
+        }
+        //casting Collections.min because it returns Object value type
+        int min = (int)Collections.min(readingTemperatures);
+        int max = (int)Collections.max(readingTemperatures);
+
+        // adding and appending new parts on string that was creating using stringBuilder
+        strToPrint.append("High: ").append(max).append(System.getProperty("line.separator"));
+        strToPrint.append("Low: ").append(min).append(System.getProperty("line.separator"));
+
+        //adding the neverSaw temperature on string that was creating using stringBuilder
+        for (int i = min; i <  max ; i++) {
+
+            if(!readingTemperatures.contains(i)){
+
+                strToPrint.append(neverSaw).append(i).append(System.getProperty("line.separator"));
+            }
+
+        }
+        //used toString because stringBuilder returns Object value type
+        return strToPrint.toString();
     }
+
+    public static String tally(List<String> votes){
+        //need to tally how many times an item in my array list shows up and return who got the most votes
+
+        int maxVotes = 0;
+        String winner = " ";
+
+        for (String name : votes) {
+            // Collections.frequency(List, item) how many times (item) is in List
+            int numOfVotes = Collections.frequency(votes, name);
+
+            if(numOfVotes > maxVotes){
+                maxVotes = numOfVotes;
+                winner = name;
+            }
+        }
+
+        return  winner + " received the most votes!";
+    }
+}
 
