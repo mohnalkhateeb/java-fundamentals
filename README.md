@@ -22,3 +22,13 @@
 
         - ##### Arrays of Arrays :
         Given an array of arrays calculate the average value for each array and return the array with the lowest average.
+
+* # Lab: 03 - Maps and File I/O
+     - ### Feature Tasks
+        - ##### Analyzing Weather Data:
+          method use the  HshSet to keep track of all the unique temperatures seen. Finally, iterate from the min temp to the max temp and create a String containing any temperature not seen during the month. Return that String. 
+        - ##### Tallying Election: 
+         a function called tally that accepts a List of Strings representing votes and returns one string to show what got the most votes.
+        - ##### linter App :
+          an application that reads a JavaScript file with a given Path, and generates an error message whenever it finds a line that doesn’t end in a semi-colon.
+
