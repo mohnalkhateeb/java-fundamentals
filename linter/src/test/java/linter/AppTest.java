@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class AppTest {
     App app = new App();
     @Test
-    public void testLinterMessage_NoErrors() {
+    public void linterNoErrorsTest() {
         String expectedOut = "The file has no missing semicolons";
         String letter = app.linterMessage("no-errors.js");
 
@@ -14,7 +14,7 @@ public class AppTest {
     }
 
     @Test
-    public void testLinterMessage_GatesJS() {
+    public void linterGatesTest() {
         String expectedOut = "Line 3: Missing semicolon\n" +
                               "Line 5: Missing semicolon\n" +
                               "Line 11: Missing semicolon\n" +
@@ -69,7 +69,7 @@ public class AppTest {
     }
 
     @Test
-    public void testLinterMessage_EmptyJS() {
+    public void linterEmptyTest() {
         String expectedOut = "The file has no missing semicolons";
         String letter = app.linterMessage("empty.js");
 
