@@ -16,7 +16,7 @@ public class App {
             String lines;
             while (scanner.hasNextLine()) {
                 lines = scanner.nextLine();
-                letter = letter+ errorChecker(lines, lineNumber);
+                letter = letter+ errorMassage(lines, lineNumber);
                 lineNumber++;
             }
         } catch (FileNotFoundException e) {
@@ -30,7 +30,7 @@ public class App {
         else return letter;
     }
 
-    private static String errorChecker(String line, int lineNumber) {
+    private static String errorMassage(String line, int lineNumber) {
 
         char last = ' ';
         StringBuilder letter = new StringBuilder();
@@ -52,6 +52,7 @@ public class App {
         System.out.println(linterMessage("gates.js"));
         System.out.println(linterMessage("nothing.txt"));
         System.out.println(linterMessage("like.js"));
+        System.out.println(linterMessage("gates2.js"));
 
     }
 }
