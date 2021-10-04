@@ -2,7 +2,7 @@ package inheritance;
 
 import java.util.LinkedList;
 
-public class Restaurant implements ReviewInterface {
+public class Restaurant  {
     private String name;
     private int stars = 0;
     private int priceCategory;
@@ -14,7 +14,7 @@ public class Restaurant implements ReviewInterface {
         this.priceCategory = Math.min(priceCategory, 4);
         this.stars = stars;
     }
-    @Override
+
     public String getName() {
         return this.name;
     }
@@ -31,12 +31,12 @@ public class Restaurant implements ReviewInterface {
         return new String(new char[numOfChars]).replace("\0", "$");
     }
 
-    @Override
+
     public LinkedList<Review> getReviews() {
         return this.reviews;
     }
 
-    @Override
+
     public String toStringOfReviews() {
         LinkedList<Review> reviews = getReviews();
         StringBuilder review = new StringBuilder();
@@ -55,10 +55,9 @@ public class Restaurant implements ReviewInterface {
         current = (int) Math.ceil(Math.round(current * 10.0) / 10.0);
         this.stars = current;
     }
-    @Override
+
     public void addReview(Review review) {
         this.reviews.add(review);
-      review.setReviewInterface(this);
         updateStars();
     }
     @Override
