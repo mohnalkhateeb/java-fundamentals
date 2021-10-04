@@ -4,7 +4,7 @@ public class Review {
     private String body;
     private String author;
     private int stars;
-    private ReviewInterface reviewInterface;
+
 
     //  Constructors
     Review(String body, String author, int stars) {
@@ -23,9 +23,7 @@ public class Review {
     public int getStars() {
         return this.stars;
     }
-    void setReviewInterface(ReviewInterface reviewable) {
-        this.reviewInterface = reviewInterface;
-    }
+
 
     @Override
     public String toString() {
