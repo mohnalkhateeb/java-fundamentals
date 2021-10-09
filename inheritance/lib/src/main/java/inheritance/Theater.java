@@ -64,6 +64,7 @@ public class Theater implements InterfaceOfReview{
         current /= (getReviews().size());
         current = (int) Math.ceil(Math.round(current * 10.0) / 10.0);
         this.stars = current;
+
     }
 
     @Override
@@ -81,7 +82,7 @@ public class Theater implements InterfaceOfReview{
                 "Name: %s\n" +
                         "Stars: %s\n" +
                         "Movies: %s\n",
-                getName(), getStars(), toStringOfMovies(getMovies())
+                getName(), getStars(), getMovies()
         );
     }
 }
