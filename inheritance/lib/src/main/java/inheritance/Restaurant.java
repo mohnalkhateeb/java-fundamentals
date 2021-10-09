@@ -14,11 +14,9 @@ public class Restaurant  {
         this.name = name;
         this.priceCategory = Math.min(priceCategory, 4);
     }
-    @Override
     public String getName() {
         return this.name;
     }
-    @Override
     public int getStars() {
         return this.stars;
     }
@@ -31,12 +29,10 @@ public class Restaurant  {
         return new String(new char[numOfChars]).replace("\0", "$");
     }
 
-    @Override
     public LinkedList<Review> getReviews() {
         return this.reviews;
     }
 
-    @Override
     public String toStringOfReviews() {
         LinkedList<Review> reviews = getReviews();
         StringBuilder review = new StringBuilder();
@@ -45,7 +41,6 @@ public class Restaurant  {
         }
         return review.toString();
     }
-    @Override
     public void updateStars() {
         int current = 0;
         for (int i = 0; i < getReviews().size(); i++) {
@@ -55,10 +50,9 @@ public class Restaurant  {
         current = (int) Math.ceil(Math.round(current * 10.0) / 10.0);
         this.stars = current;
     }
-    @Override
     public void addReview(Review review) {
         this.reviews.add(review);
-        review.setReviewInterface(this);
+//        review.setReviewInterface(this);
         updateStars();
     }
     @Override
