@@ -3,6 +3,7 @@
  */
 package inheritance;
 
+
 public class Library {
 
     public static void main(String[] args){
@@ -16,6 +17,24 @@ public class Library {
         restaurant.addReview(r1);
         restaurant.addReview(r2);
         System.out.println(restaurant.toStringOfReviews());
+        Shop bobo = new Shop("bobo","toys Shop",3);
+        System.out.println(bobo.toString());
+        bobo.addReview(review);
+        bobo.addReview(r1);
+        bobo.addReview(r2);
+        System.out.println(bobo.toStringOfReviews());
+         Theater theater = new Theater("Joki");
+         theater.addMovie("jaki");
+         theater.addMovie(("sporter"));
+        System.out.println(theater.toStringOfMovies(theater.getMovies()));
+         theater.addReview(review);
+         theater.addReview(r1);
+         theater.addReview(r2);
+
+        System.out.println(theater.toStringOfReviews());
+        System.out.println(theater.toString());
+
+
     }
 
 }
