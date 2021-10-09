@@ -2,17 +2,17 @@ package inheritance;
 
 import java.util.LinkedList;
 
-public class Restaurant implements InterfaceOfReview {
+public class Restaurant  {
+
     private String name;
     private int stars = 0;
     private int priceCategory;
 
-    private LinkedList<Review> reviews = new LinkedList<>();
+    private  static LinkedList<Review> reviews = new LinkedList<>();
     //  Constructor
-    Restaurant(String name, int priceCategory , int stars) {
+    Restaurant(String name, int priceCategory ) {
         this.name = name;
-        this.priceCategory = Math.min(priceCategory, 5);
-        this.stars = stars;
+        this.priceCategory = Math.min(priceCategory, 4);
     }
     @Override
     public String getName() {
@@ -41,7 +41,7 @@ public class Restaurant implements InterfaceOfReview {
         LinkedList<Review> reviews = getReviews();
         StringBuilder review = new StringBuilder();
         for (Review value : reviews) {
-            review.append(value.toString()).append("\n");
+            review.append(value.toString()+"\n");
         }
         return review.toString();
     }
@@ -65,7 +65,7 @@ public class Restaurant implements InterfaceOfReview {
     public String toString() {
 
         return String.format(
-                "%s has a rating of %s stars and is a %s price category ",
+                "%s has a rating of %s stars and is a %s price category",
                 getName(), getStars(), getPriceString(getPriceCategory())
         );
     }

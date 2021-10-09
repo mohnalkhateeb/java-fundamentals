@@ -18,10 +18,8 @@
          a method called containsDuplicates that returns true or false depending on whether the array contains duplicate values.
         - ##### Calculating Averages :
         Write a method that accepts an array of integers and calculates and returns the average of all the values in the array.
-
-
         - ##### Arrays of Arrays :
-        Given an array of arrays calculate the average value for each array and return the array with the lowest average.
+        - Given an array of arrays calculates the average value for each array and return the array with the lowest average.
 
 * # Lab: 03 - Maps and File I/O
      - ### Feature Tasks
@@ -32,3 +30,5 @@
         - ##### linter App :
           an application that reads a JavaScript file with a given Path, and generates an error message whenever it finds a line that doesn’t end in a semi-colon.
 
+* # Lab : 06 & 07 Inheritance 
+* [Inheritance](inheritance/README.md)
