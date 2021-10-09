@@ -1,18 +1,16 @@
 package inheritance;
 
 import java.util.LinkedList;
-
 public class Restaurant  {
     private String name;
     private int stars = 0;
     private int priceCategory;
 
-    private LinkedList<Review> reviews = new LinkedList<>();
+    private  static LinkedList<Review> reviews = new LinkedList<>();
     //  Constructor
-    Restaurant(String name, int priceCategory , int stars) {
+    Restaurant(String name, int priceCategory ) {
         this.name = name;
         this.priceCategory = Math.min(priceCategory, 4);
-        this.stars = stars;
     }
 
     public String getName() {
@@ -41,7 +39,7 @@ public class Restaurant  {
         LinkedList<Review> reviews = getReviews();
         StringBuilder review = new StringBuilder();
         for (Review value : reviews) {
-            review.append(value.toString());
+            review.append(value.toString()+"\n");
         }
         return review.toString();
     }
@@ -64,7 +62,7 @@ public class Restaurant  {
     public String toString() {
 
         return String.format(
-                "%s has a rating of %s stars and is a %s price category ",
+                "%s has a rating of %s stars and is a %s price category",
                 getName(), getStars(), getPriceString(getPriceCategory())
         );
     }

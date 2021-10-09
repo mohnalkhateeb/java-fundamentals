@@ -28,7 +28,7 @@ public class Review {
     @Override
     public String toString() {
         return String.format(
-                "Author is  %s with number of stars %s and he/she wrote: %s",
+                "Author is %s with number of stars %s and he/she wrote: %s",
                 getAuthor(), getStars(), getBody()
         );
     }
