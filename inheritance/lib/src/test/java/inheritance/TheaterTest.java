@@ -9,36 +9,31 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TheaterTest {
     @Test
     public void getNameTest() {
-        Theater testTheater = new Theater("come in your time ");
+        Theater testTheater = new Theater("come in your time");
 
-        assertEquals(
-                "testGetName should return: ",
-                "come in your time",
-                testTheater.getName()
-        );
+        assertEquals("come in your time",
+                testTheater.getName());
     }
 
     @Test
     public void getStarsTest() {
         Theater testTheater = new Theater("come in your time");
 
-        assertEquals(
-                0,
-                testTheater.getStars()
-
-        );
+        assertEquals(0, testTheater.getStars());
     }
-
     @Test
-    public void getMoviesTest() {
+    public void addMoviesTest() {
         Theater theater = new Theater("come in your time");
         theater.addMovie("Transporter ");
 
-        assertEquals(
-                "testGetMovies should return: ",
-                "[Transporter]",
-                theater.getMovies().toString()
-        );
+        assertEquals(1, theater.getMovies().size());
+    }
+    @Test
+    public void getMoviesTest() {
+        Theater theater = new Theater("come in your time");
+        theater.addMovie("Transporter");
+
+        assertEquals("[Transporter]", theater.getMovies().toString());
     }
 
     @Test
@@ -48,32 +43,22 @@ public class TheaterTest {
         theater.addMovie("Jaki");
         theater.removeMovie("shan");
 
-        assertEquals(
-                "testRemoveMovie should return: ",
-                "shan",
-                theater.toStringOfMovies(theater.getMovies())
-        );
+        assertEquals("Transporter , Jaki , ", theater.toStringOfMovies(theater.getMovies()));
     }
 
     @Test
     public void toStringOfMovieTest() {
         Theater theater = new Theater("come in your time");
+        assertEquals("No Movies To Show",theater.toStringOfMovies(theater.getMovies()));
         theater.addMovie("Transporter");
-
-        assertEquals(
-                "testToMovieString should return: ",
-                "Hebrew Hammer",
-                theater.toStringOfMovies(theater.getMovies())
-        );
+        theater.addMovie("Jaki");
+        assertEquals("Transporter , Jaki , ", theater.toStringOfMovies(theater.getMovies()));
     }
     @Test
     public void emptyGetReviewTest() {
         Theater testTheater = new Theater("come in your time");
 
-        assertEquals(
-                "emptyGetReviewTest should print: ",
-                testTheater.getReviews()
-        );
+        assertEquals(0, testTheater.getReviews().size());
     }
 
     @Test
@@ -85,23 +70,21 @@ public class TheaterTest {
         TheaterTest.addReview(review);
         testOfReview.add(review);
 
-        assertEquals(
-                "fillingGetReviewTest should print: ",
-                TheaterTest.getReviews()
-        );
+        assertEquals("[Author is Moh kh with number of stars 3 and he/she wrote: This Theater was not bad]",
+                TheaterTest.getReviews().toString());
     }
 
-    @Test
-    public void toStringTest() {
-        Theater TheaterTest = new Theater("come in your time");
 
+    @Test
+    public void toStringWithMoviesTest() {
+        Theater TheaterTest = new Theater("come in your time");
+            TheaterTest.addMovie("Jaki");
+            TheaterTest.addMovie("Baby");
         assertEquals(
-                "testToString should return: ",
-                "come in your time \n"+
-                TheaterTest.getStars()+"\n"+
-                TheaterTest.getMovies(),
-                TheaterTest.toString()
-        );
+                "Name: "+TheaterTest.getName()+"\n" +
+                        "Stars: "+TheaterTest.getStars()+"\n" +
+                        "Movies: "+TheaterTest.getMovies()+"\n",
+                TheaterTest.toString());
     }
 
     @Test
@@ -111,8 +94,7 @@ public class TheaterTest {
         TheaterTest.addReview(review);
 
         assertEquals(
-                "addOneReview should print: ",
-                "Author: Moh Kh give Number of Stars: 4.0 and write  This Theater was not bad",
+                "Author is Moh kh with number of stars 3 and he/she wrote: This Theater was not bad\n",
                 TheaterTest.toStringOfReviews()
         );
     }
@@ -126,9 +108,8 @@ public class TheaterTest {
         TheaterTest.addReview(review1);
 
         assertEquals(
-                "addMultipleReviewTest should print: ",
-                "Author: Moh Kh give Number of Stars: 4.0 and write  This Theater was good" +
-                        "Author: Moh Kh give Number of Stars: 4.0 and write  This Theater was bad",
+                "Author is Moh Kh with number of stars 4 and he/she wrote: This Theater was good\n" +
+                        "Author is Moh kh with number of stars 1 and he/she wrote: This Theater was bad\n",
                 TheaterTest.toStringOfReviews()
         );
     }
@@ -139,25 +120,17 @@ public class TheaterTest {
         Review review = new Review("This Theater was not bad", "Moh Kh", 4);
         TheaterTest.addReview(review);
 
-        assertEquals(
-                "oneReviewUpdateStarsTest should return: ",
-                TheaterTest.getStars()
-
-        );
+        assertEquals(4, TheaterTest.getStars());
     }
 
     @Test
     public void multipleReviewUpdateStarsTest() {
         Theater TheaterTest = new Theater("come in your time");
         Review review = new Review("This Theater was good", "Moh Kh", 4);
-        Review review1 = new Review("This Theater was bad", "Moh Kh", 1);
+        Review review1 = new Review("This Theater was bad", "Moh Kh", 2);
         TheaterTest.addReview(review);
         TheaterTest.addReview(review1);
 
-        assertEquals(
-                "multipleReviewUpdateStarsTest should print: ",
-                TheaterTest.getStars()
-
-        );
+        assertEquals(3, TheaterTest.getStars());
     }
 }

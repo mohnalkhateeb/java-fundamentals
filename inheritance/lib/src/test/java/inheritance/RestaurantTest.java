@@ -17,8 +17,8 @@ public class RestaurantTest {
 
     @Test
     public void getStarsTest() {
-        Restaurant testRestaurant = new Restaurant("come in your time", 1);
-        assertEquals(0, testRestaurant.getStars());
+        Restaurant restaurant = new Restaurant("come in your time", 1);
+        assertEquals(0, restaurant.getStars());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class RestaurantTest {
         restaurantTest.addReview(review);
         testOfReview.add(review);
 
-        assertEquals("[Author is  Moh kh with number of stars 3 and he/she wrote: This restaurant was not bad]",
+        assertEquals("[Author is Moh kh with number of stars 3 and he/she wrote: This restaurant was not bad]",
                 restaurantTest.getReviews().toString());
     }
 
@@ -52,7 +52,7 @@ public class RestaurantTest {
     public void toStringTestWithNoStatrs() {
         Restaurant restaurantTest = new Restaurant("come in your time", 1);
 
-        assertEquals("come in your time has a rating of 0 stars and is a $ price category ",
+        assertEquals("come in your time has a rating of 0 stars and is a $ price category",
                 restaurantTest.toString());
     }
     @Test
@@ -62,7 +62,7 @@ public class RestaurantTest {
 
         restaurantTest.addReview(review);
 //        testOfReview.add(review);
-        assertEquals("come in your time has a rating of 3 stars and is a $ price category ",
+        assertEquals("come in your time has a rating of 3 stars and is a $ price category",
                 restaurantTest.toString());
     }
 
@@ -73,7 +73,7 @@ public class RestaurantTest {
         restaurantTest.addReview(review);
 
         assertEquals(
-                "Author is  Moh kh with number of stars 3 and he/she wrote: This restaurant was not bad",
+                "Author is Moh kh with number of stars 3 and he/she wrote: This restaurant was not bad\n",
                 restaurantTest.toStringOfReviews()
         );
     }
@@ -87,8 +87,8 @@ public class RestaurantTest {
         restaurantTest.addReview(review1);
 
         assertEquals(
-                "Author is  Moh Kh with number of stars 4 and he/she wrote: This restaurant was good"+"\n"+
-                        "Author is  Moh kh with number of stars 1 and he/she wrote: This restaurant was bad"+"\n",
+                "Author is Moh Kh with number of stars 4 and he/she wrote: This restaurant was good"+"\n"+
+                        "Author is Moh kh with number of stars 1 and he/she wrote: This restaurant was bad"+"\n",
                 restaurantTest.toStringOfReviews()
         );
     }
